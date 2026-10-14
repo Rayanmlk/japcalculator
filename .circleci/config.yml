@@ -26,7 +26,19 @@ jobs:
       - run: npm run test
       - run: npm run build
 
+  security-audit:
+    docker:
+      - image: cimg/node:22.12
+
+    steps:
+      - checkout
+
+      # check dependencies for known vulnerabilities
+      # (non-blocking for now: "npm audit fix" would break this old project)
+      - run: npm audit || true
+
 workflows:
   node-tests:
     jobs:
       - build-test
+      - security-audit
