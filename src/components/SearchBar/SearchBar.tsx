@@ -21,7 +21,7 @@ export const SearchBar: React.FC<Props> = (props: Props) => {
       <img src={MjpSearch} alt="search" className={classes.logoSearch} />
       <InputBase
         className={classes.input}
-        placeholder="Where do you want to eat ? "
+        placeholder="Ou tu veux manger ? "
       />
     </div>
   );
